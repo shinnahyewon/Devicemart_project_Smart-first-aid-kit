@@ -1,0 +1,97 @@
+import speech_recognition as sr
+import socket
+import threading
+import sys
+import time
+import pygame
+
+HOST = "10.10.14.69"
+PORT = 5000
+ADDR = (HOST,PORT)
+
+recvId = "10"
+recvFlag = False
+rsplit = []
+lock=threading.Lock()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# 음성 인식기 인스턴스 생성
+recognizer = sr.Recognizer()
+try:
+	s.connect((HOST, PORT)) 
+	def sendingMsg(): 
+		s.send('[10:PASSWD]'.encode()) 
+		time.sleep(0.5)
+		while True: 
+			data = input() 
+	#			data = bytes(data, "utf-8") 
+			data = bytes(data+'\n', "utf-8") 
+			s.send(data) 
+			s.close() 
+	def gettingMsg(): 
+		global rsplit
+		global recvFlag
+		while True: 
+			data = s.recv(1024) 
+			rstr = data.decode("utf-8")
+			rsplit = re.split('[\]|\[@]|\n',rstr)  #'[',']','@' 분리
+			recvFlag = True
+	#			print('recv :',rsplit) 
+
+		s.close() 
+	threading._start_new_thread(sendingMsg,()) 
+	threading._start_new_thread(gettingMsg,()) 
+except Exception as e:
+	print('%s:%s'%ADDR)
+	sys.exit()
+print('connect is success')
+ledFlag = False
+
+def play_sound():
+    pygame.mixer.init()
+    sound = pygame.mixer.Sound('sound_file2.wav')  # Replace 'sound_file.wav' with your sound file
+    sound.play(1)
+
+# 마이크로부터 오디오 데이터 캡처
+def process_speech_input():
+    while True:
+        with sr.Microphone() as source:
+            print("말을 하세요...")
+            audio_data = recognizer.listen(source)
+            print("인식 중...")
+
+        try:
+            text = recognizer.recognize_google(audio_data, language='ko-KR')
+            print("인식된 내용: " + text)
+
+            words = text.split()
+            found = False  # Use a boolean flag for simplicity
+            for word in words:
+                if word == '켜':
+                    play_sound()
+                    data = "[LYJ_ARD]LED@ON"
+                    data = bytes(data+'\n', "utf-8")
+                    s.send(data) 
+                    found = True
+                elif word == '꺼':
+                    
+                    data = "[LYJ_ARD]LED@OFF"
+                    data = bytes(data+'\n', "utf-8")
+                    s.send(data) 
+                    found = True
+
+            if found:
+                print("'켜' 또는 '꺼' 문자열을 찾았습니다.")
+                # Send data to the server
+
+        except sr.UnknownValueError:
+            print("음성을 인식할 수 없습니다.")
+        except sr.RequestError as e:
+            print(f"음성 인식 서비스 요청에 실패했습니다; {e}")
+
+# Start a separate thread to continuously process speech input
+threading._start_new_thread(process_speech_input,())
+
+# Keep the main thread running indefinitely
+while True:
+    time.sleep(1)  # Keep the main thread alive
