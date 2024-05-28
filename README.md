@@ -13,7 +13,7 @@ Devicemart_project_Smart-first-aid-kit
 - 컴퓨터 비전과 음성 인식 기술을 활용한 응급 처치 및 시간 단축
 - 특정 명령을 통한 약품함 개폐 시스템
 
-사용 기술 : C, C++, Python, 아두이노, 라즈베리파이, 젯슨나노, Ubuntu, Yolo, OpenCV, TCP/IP, GUI
+사용 기술 : C, C++, Python, 아두이노, 라즈베리파이, 젯슨나노, Ubuntu, Yolo, OpenCV, TCP/IP, GUI 
 
 세부수행내용 :
 
