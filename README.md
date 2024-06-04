@@ -1,3 +1,4 @@
+2024 ICT 융합프로젝트 공모전 최우수상작
 Devicemart_project_Smart-first-aid-kit
 
 수행기간 : 2024.02.24.~2024.03.31
