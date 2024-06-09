@@ -28,6 +28,17 @@ Devicemart_project_Smart-first-aid-kit
 ■ 시스템 구성
  1) 전체 시스템 구성
 
+-[Client] Jetson Nano 회로도
+![image](https://github.com/shinnahyewon/Devicemart_project_Smart-first-aid-kit/assets/161293023/91a2603a-4836-429d-8145-891b01536233)
+
+-[Slave] Arduino 회로도
+![image](https://github.com/shinnahyewon/Devicemart_project_Smart-first-aid-kit/assets/161293023/52b104b6-8257-4da2-ba99-a7d54f25faa6)
+
+-[Client] Raspberry Pi 회로도
+![image](https://github.com/shinnahyewon/Devicemart_project_Smart-first-aid-kit/assets/161293023/b575f952-80da-4e75-afdb-146faf57d60c)
+
+
+
 ![image](https://github.com/shinnahyewon/Devicemart_project_Smart-first-aid-kit/assets/161293023/03433d0b-b716-4c60-86d3-a88406efb447)
 
   2)세부 시스템 구성
