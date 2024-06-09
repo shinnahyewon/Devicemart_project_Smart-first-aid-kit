@@ -25,8 +25,8 @@ Devicemart_project_Smart-first-aid-kit
 2) 개발 목표
  스마트 구급상자는 실시간 영상 인식 및 음성 인식 기술을 활용하여 사용자의 의료적 필요를 정확히 파악하고 적시에 맞춤형 의료 지원을 제공하는 구급상자이다. 이 작품의 주요 목표는 즉각적인 의료 지원을 제공받을 수 없는 상황에서 의료 서비스에 대한 접근성을 향상하는 것이다. 사용자가 상처를 입었을 때, 상처 식별을 위한 영상 인식과 음성 인식 기술을 통합해 상처의 종류를 영상으로 판단하거나, 사용자의 음성 지시를 통해 필요한 의료용품을 자동으로 제공한다.
 
-■ 시스템 구성
- 1) 전체 시스템 구성
+
+■ 회로도
 
 -[Client] Jetson Nano 회로도
 ![image](https://github.com/shinnahyewon/Devicemart_project_Smart-first-aid-kit/assets/161293023/91a2603a-4836-429d-8145-891b01536233)
@@ -37,7 +37,9 @@ Devicemart_project_Smart-first-aid-kit
 -[Client] Raspberry Pi 회로도
 ![image](https://github.com/shinnahyewon/Devicemart_project_Smart-first-aid-kit/assets/161293023/b575f952-80da-4e75-afdb-146faf57d60c)
 
+■ 시스템 구성
 
+  1) 전체 시스템 구성
 
 ![image](https://github.com/shinnahyewon/Devicemart_project_Smart-first-aid-kit/assets/161293023/03433d0b-b716-4c60-86d3-a88406efb447)
 
